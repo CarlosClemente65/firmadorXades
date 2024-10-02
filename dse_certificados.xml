@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dse_certificados</name>
+    </assembly>
+    <members>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.cargarCertificadosAlmacen">
+            <summary>
+            Proceso de lectura de los certificados instalados en el almacen del usuario, para poder usarlos en otros metodos
+            </summary>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.obtenerDatosSubject(System.String,GestionCertificadosDigitales.PropiedadesCertificados)">
+            <summary>
+            Permite obtener las propiedades de los certificados que estan almacenadas en el campo 'Subject'
+            </summary>
+            <param name="subject">Contenido del subject del certificado digital</param>
+            <param name="propiedadesCertificado">Propiedades del certificado que ya se han procesado en la carga de certificados</param>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.buscarCertificado(System.String)">
+            <summary>
+            Obtiene el numero de serie de un certificado buscando en el numero de serie, NIF o nombre del titular
+            </summary>
+            <param name="textoBusqueda">Texto a buscar</param>
+            <returns>Numero de serie del certificado encontrado o un texto vacio en caso contrario</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.relacionCertificados">
+            <summary>
+            Obtiene una relacion de los certificados con sus propiedades 
+            </summary>
+            <returns>Lista de certificados y sus propiedades</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.ordenarCertificados(GestionCertificadosDigitales.GestionarCertificados.CampoOrdenacion,System.Boolean)">
+            <summary>
+            Obtiene una relacion de los certificados ordenados por el campo y orden especificado
+            </summary>
+            <param name="campoOrdenacion">Campo por el que se va a ordenar la lista (utiliza el enum 'CampoOrdenacion')</param>
+            <param name="ascendente">'True' para ascendente, 'False' para descendente</param>
+            <returns>Lista de certificados ordenada</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.filtrarCertificadosNombre(System.String)">
+            <summary>
+            Obtiene una relacion de certificados filtrada por el campo 'titularCertificado' segun el texto pasado
+            </summary>
+            <param name="filtro">Texto a buscar</param>
+            <returns>Lista de certificados filtrada</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.filtrarCertificadosNif(System.String)">
+            <summary>
+            Obtiene una relacion de certificados filtrada por el campo 'nifCertificado' segun el texto pasado
+            </summary>
+            <param name="filtro">Texto a buscar</param>
+            <returns>Lista de certificados filtrada</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.leerCertificado(System.String,System.String)">
+            <summary>
+            Permite leer las propiedades de un certificado pasado como fichero
+            </summary>
+            <param name="fichero">Ruta del fichero a leer</param>
+            <param name="password">Contraseña del certificado (necesaria para acceder a los datos)</param>
+            <returns>OK si la lectura es correcta o errores que se han producido, ademas de un true o false con el resultado de la lectura</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.exportarPropiedadesCertificados">
+            <summary>
+            Permite obtener las propiedades de los certificados para poder exportarlos a un fichero
+            </summary>
+            <returns>Texto con formato Json con las propiedades de los certificados, 'true' si se han podido obtener los datos o 'false' en caso contrario</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.exportaCertificadoB64(System.String,System.String)">
+            <summary>
+            Permite exportar un certificado digital en base64
+            </summary>
+            <param name="ruta">Ruta del fichero que se quiere pasar a base64</param>
+            <param name="password">Contraseña del certificado digital</param>
+            <returns>Cadena de caracteres en base64 que representa el certificado digital, o mensaje de error si no se ha podido convertir, asi como un true o false con el resultado de la conversion</returns>
+        </member>
+        <member name="M:GestionCertificadosDigitales.GestionarCertificados.exportaCertificadoDigital(System.String)">
+            <summary>
+            Obtiene un certificado digital segun el numero de serie pasado
+            </summary>
+            <param name="serieCertificado">Numero de serie del certificado a obtener</param>
+            <returns>Certificado digital</returns>
+        </member>
+    </members>
+</doc>
